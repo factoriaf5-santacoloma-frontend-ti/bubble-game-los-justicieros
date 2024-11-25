@@ -1,0 +1,116 @@
+/* Reset general */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+}
+
+/* Barra de Navegación */
+.navbar {
+    position: absolute; /* Posiciona la barra sobre el video */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Asegura que la barra esté encima del video */
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo negro con 60% de opacidad */
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 15px;
+    font-size: 1rem;
+}
+
+.navbar .play-now {
+    background-color: #D72638;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.navbar .play-now:hover {
+    background-color: #e63900;
+}
+
+/* Sección de Video */
+.video-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.background-video {
+    width: 100%; /* Mantiene el ancho completo */
+    height: 500px; /* Ajusta la altura como desees */
+    object-fit: cover; /* Recorta el video si es necesario para que llene el área */
+    display: block;
+}
+
+/* Descripción */
+.description-section {
+    padding: 20px;
+    background-color: #002c4a;
+    color: #fff;
+    text-align: center;
+}
+
+.description-section h2 {
+    margin-bottom: 15px;
+}
+
+.description-section p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+/* Footer */
+.footer {
+    padding: 10px 20px;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 10px;
+    }
+
+    .nav-links a {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .description-section {
+        padding: 15px;
+    }
+}
