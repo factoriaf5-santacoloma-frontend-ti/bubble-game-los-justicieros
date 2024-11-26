@@ -1,0 +1,11 @@
+Model Information:
+* title:	Swordie The Swordfish
+* source:	https://sketchfab.com/3d-models/swordie-the-swordfish-17986b3d18a549b9843a3bd3ef41efea
+* author:	Andrew.Mischenko (https://sketchfab.com/Andrew.Mischenko)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Swordie The Swordfish" (https://sketchfab.com/3d-models/swordie-the-swordfish-17986b3d18a549b9843a3bd3ef41efea) by Andrew.Mischenko (https://sketchfab.com/Andrew.Mischenko) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
