@@ -6,19 +6,20 @@
 }
 
 body {
-    font-family: Arial, sans-serif; /* Fuente principal del documento */
+    font-family: "Sour Gummy", serif; /* Fuente principal del documento */
     line-height: 1.6; /* Altura de línea para un mejor espaciado del texto */
-    background-color: #140840; /* Fondo de color azul oscuro */
+    background-color: #A7D9D4; /* Fondo de color verde claro */
 }
 
 /* Barra de Navegación */
 .navbar {
+    font-family: "Sour Gummy", serif;
     position: absolute; /* Ubica la barra en una posición absoluta en relación con el contenedor principal */
     top: 0; /* Posición superior de la barra */
     left: 0; /* Posición izquierda de la barra */
     width: 100%; /* La barra ocupa el 100% del ancho */
     z-index: 1000; /* Prioridad más alta para que esté por encima de otros elementos */
-    background-color: rgba(0, 0, 0, 0.3); /* Fondo negro con una opacidad del 30% */
+    background-color: rgba(182, 250, 220, 0.1); /* Fondo negro con una opacidad del 30% */
     backdrop-filter: blur(10px); /* Aplica un desenfoque al fondo detrás de la barra */
     color: #fff; /* Color del texto blanco */
     padding: 10px 20px; /* Espaciado interno: 10px arriba/abajo y 20px izquierda/derecha */
@@ -41,7 +42,10 @@ body {
 }
 
 .navbar .play-now {
-    background-color: #D72638; /* Fondo rojo del botón "Play Now" */
+    background: linear-gradient(135deg,#c501e2, #9a27f7, #6664ff ); /* Fondo degradado */
+    font-family: "Sour Gummy", serif;
+    /*background-color: #9a27f7; /* Fondo rojo del botón "Play Now" */
+    
     color: #fff; /* Color del texto en blanco */
     border: none; /* Elimina cualquier borde predeterminado */
     padding: 8px 15px; /* Relleno interno del botón */
@@ -52,7 +56,8 @@ body {
 }
 
 .navbar .play-now:hover {
-    background-color: #e63900; /* Cambia a un rojo más oscuro al pasar el cursor */
+    transform: translateY(-3px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
 }
 
 /* Sección de Video */
@@ -63,7 +68,7 @@ body {
 
 .background-video {
     width: 100%; /* El video ocupa todo el ancho disponible */
-    height: 500px; /* Altura fija para el video */
+    height: 725px; /* Altura fija para el video */
     object-fit: cover; /* Asegura que el video llene el área sin deformarse */
     display: block; /* Asegura un buen comportamiento en la estructura del diseño */
 }
@@ -72,15 +77,28 @@ body {
 .description-section {
     padding: 40px 20px; /* Espaciado interno: 40px arriba/abajo y 20px izquierda/derecha */
     margin: 50px auto; /* Espaciado externo: 50px arriba/abajo y centrado horizontalmente */
-    background-color: #F2F2F2; /* Fondo de color gris claro */
-    color: #000; /* Color del texto en negro */
+    background-color: #1B8C8C; /* Fondo de color gris claro */
+    color: #fff; /* Color del texto en negro */
     max-width: 800px; /* Ancho máximo del contenedor para evitar que se expanda demasiado */
     border-radius: 10px; /* Bordes redondeados para un diseño más elegante */
     text-align: center; /* Centra el texto dentro de la sección */
 }
 
+.description-section .play-now{
+    font-family: "Sour Gummy", serif;
+    background: linear-gradient(135deg,#c501e2, #9a27f7, #6664ff ); /* Fondo degradado */
+    color: #fff; /* Color del texto en blanco */
+    border: none; /* Elimina cualquier borde predeterminado */
+    padding: 8px 15px; /* Relleno interno del botón */
+    border-radius: 5px; /* Bordes redondeados para un estilo más atractivo */
+    cursor: pointer; /* Cambia el cursor al icono de mano para indicar que es clickeable */
+    font-size: 2rem; /* Tamaño de fuente del botón */
+    transition: background-color 0.3s ease; /* Transición suave para el cambio de color al hacer hover */
+}
+
 .description-section h2 {
     margin-bottom: 15px; /* Espaciado inferior del título */
+    font-family: "Indie Flower", cursive;
 }
 
 .description-section p {
