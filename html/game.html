@@ -19,10 +19,43 @@
             gltf-model="../imagenes/objetos-oceano/orca/scene.gltf">
        
         </a-entity>
+
+        <a-entity id="camara-burbuja"  camera look-controls position="0 1.6 0">
+        <a-light type="ambient" intensity="0.5"></a-light>
+        <a-light type="point" intensity="1" position="2 5 3" color="#ffffff"></a-light>
+        <a-sphere 
+        id="burbuja"
+        position="0 1.5 -3"
+        radius="0.3"
+        material="color: #89cff0; opacity: 0.6; transparent: true; metalness: 0.8; roughness: 0.2; envMap: src: #sky"
+        random-move >
+        </a-sphere>
+        <a-sphere 
+        position="-1 1 -3"
+         radius="0.3" 
+         material="color: #89cff0; opacity: 0.6" 
+         random-move>
+        </a-sphere>
+        <a-sphere 
+        position="1 2 -4" 
+        radius="0.4" 
+        material="color: #89cff0; opacity: 0.5" 
+        random-move>
+        </a-sphere>
+
+        <a-sphere 
+        position="0 0.5 -2" 
+        radius="0.2" 
+        material="color: #89cff0; opacity: 0.7" 
+        random-move>
+        </a-sphere>
+    </a-entity>
+
+
         </a-scene>
     </div>
-
-    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="/js/game.js"></script>
+    <script type="module" src="/js/main.js"></script>
 </body>
 </html>
 
