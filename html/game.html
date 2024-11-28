@@ -5,8 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title></title>
         
-        <script src="https://cdn.jsdelivr.net/npm/aframe-extras/dist/aframe-extras.min.js"></script>
-        <script type="module" src="/js/game.js"></script>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/aframe-extras/dist/aframe-extras.min.js"></script> -->
+        <!-- <script type="module" src="/js/game.js"></script> -->
         <style>
             body {
                 margin: 0;
@@ -17,14 +17,39 @@
 <body>
     <div id="app">
         
-        <a-scene>
-            
+    <a-scene>
+             
             <a-camera 
             id="camera" 
             position="0 1.6 0" 
-            look-controls>
-        </a-camera>
+            look-controls><a-cursor raycaster="objects: .bubble"></a-cursor>
+        </a-camera> 
+        <!-- <a-entity 
+            cursor="fuse: true; fuseTimeout: 100" 
+            position = "0 2 -1"                 
+            raycaster="objects: .bubble"           
+            geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"  
+            material="shader: flat">              
+        </a-entity> -->
         
+        <!-- Material plano sin sombreado -->
+
+        
+            <!-- Contador de meteoritos cazados -->
+            <a-text 
+            id="score-text"
+            value="0 burbujas explotadas" 
+            color="black" 
+            position="0 2 -1" 
+            width="2" 
+            align="center">
+            </a-text>
+
+            <!-- Cursor/Mira para apuntar y cazar meteoritos -->
+            
+            
+        
+
             <!-- Fondo -->
             <a-sky src="../imagenes/fotos-fondos/marcheveree.jpg"></a-sky>
             <!-- ORRCAA -->
@@ -34,18 +59,18 @@
             orca-motion="speed: 1.1; waveHeight: 1; waveFrequency: 0.5; range: 40; rotationOffset: 90 "
             scale="10 10 10"
             position=" 0 40 0">
-        </a-entity>
+            </a-entity>
         
         
         
-        <!-- DELFIN -->
-        <a-entity 
-        gltf-model="../imagenes/objetos-oceano/delfin-cute/scene.gltf"
-        animation-mixer
-        dolphin-motion="speed: 2; range: 20"
-        scale="3 3 3" 
-        position=" 20 -70 0">
-    </a-entity>
+            <!-- DELFIN -->
+            <a-entity 
+            gltf-model="../imagenes/objetos-oceano/delfin-cute/scene.gltf"
+            animation-mixer
+            dolphin-motion="speed: 2; range: 20"
+            scale="3 3 3" 
+            position=" 20 -70 0">
+            </a-entity>
     
     
     <!-- <a-entity id="rig" position="25 -120 0">

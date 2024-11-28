@@ -1,5 +1,7 @@
 import AFRAME from 'aframe';
 
+
+
 document.addEventListener("DOMContentLoaded", function() {
   for (let i = 0; i < 10; i++) {
    const bubblesGroup = document.createElement('a-entity');
@@ -14,6 +16,8 @@ document.addEventListener("DOMContentLoaded", function() {
    
    for (let j = 0; j < 10; j++) {
      const bubbles = document.createElement('a-sphere');
+     bubbles.className= "bubble"
+     bubbles.setAttribute('shootable', '');
      bubbles.object3D.position.set(Math.random() * 100 * j - 100, -4, Math.random() * 2 - j);
      bubbles.setAttribute('radius', '0.8');
      bubbles.setAttribute('color', '#89cff0');
@@ -38,4 +42,20 @@ AFRAME.registerComponent('random-move', {
       loop: true 
     });
   }
+});
+
+let score= 0;
+
+AFRAME.registerComponent('shootable', {
+    init: function () {
+        // Añade un event listener para el evento 'click'
+        this.el.addEventListener('mouseenter', () => {
+            // Elimina la burbuja cuando es clickeada
+            this.el.parentNode.removeChild(this.el);
+            console.log(this.el.className)
+            // Incrementa y actualiza el contador de puntuación
+            score++; // Incrementa el puntaje
+            document.querySelector('#score-text').setAttribute('value', `${score} burbujas explotadas`); // Actualiza el texto
+        });
+    }
 });
