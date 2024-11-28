@@ -12,6 +12,7 @@
     "vite": "^5.4.10"
   },
   "dependencies": {
-    "aframe": "^1.6.0"
+    "aframe": "^1.6.0",
+    "aframe-extras": "^7.5.2"
   }
 }
