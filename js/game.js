@@ -1,5 +1,7 @@
 import AFRAME from 'aframe';
-import 'aframe-extras';
+
+//import 'aframe-extras';
+
 
 // Componente para movimiento vertical de la orca
 AFRAME.registerComponent('orca-motion', {

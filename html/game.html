@@ -1,158 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-   
-    <script src="https://cdn.jsdelivr.net/npm/aframe-extras/dist/aframe-extras.min.js"></script>
-    <script type="module" src="/js/game.js"></script>
-    <style>
-        body {
-            margin: 0;
-            overflow: hidden;
-        }
-    </style>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title></title>
+        
+        <script src="https://cdn.jsdelivr.net/npm/aframe-extras/dist/aframe-extras.min.js"></script>
+        <script type="module" src="/js/game.js"></script>
+        <style>
+            body {
+                margin: 0;
+                overflow: hidden;
+            }
+            </style>
 </head>
 <body>
     <div id="app">
+        
         <a-scene>
-             <a-camera position=" 0 0 11">
-
-             </a-camera>
-            <a-sky 
-                material="src: ../imagenes/fotos-fondos/marchevere.jpg;">
-            </a-sky>
-           
-    <a-scene>
-        <a-entity id="rig" position="25 -120 0">
-            <a-camera id="camera"></a-camera>
-          </a-entity>
-
-        <!-- Fondo -->
-        <a-sky src="../imagenes/fotos-fondos/marcheveree.jpg"></a-sky>
-    <!-- ORRCAA -->
-        <a-entity 
-        gltf-model="../imagenes/objetos-oceano/orca/scene.gltf"
-        animation-mixer="timeScale: 0.2"
-        orca-motion="speed: 1.1; waveHeight: 1; waveFrequency: 0.5; range: 40; rotationOffset: 90 "
-        scale="10 10 10"
-        position=" 0 40 0">
-    </a-entity>
-    
-    
-
- <!-- DELFIN -->
- <a-entity 
- gltf-model="../imagenes/objetos-oceano/delfin-cute/scene.gltf"
- animation-mixer
- dolphin-motion="speed: 2; range: 20"
- scale="3 3 3" 
- position=" 20 -70 0">
-</a-entity>
-
-        <!-- <a-entity 
-        id="camara-burbuja"  
-        camera look-controls 
-        wasd-controls 
-        position="0 1.6 0">
+            
+            <a-camera 
+            id="camera" 
+            position="0 1.6 0" 
+            look-controls>
+        </a-camera>
+        
+            <!-- Fondo -->
+            <a-sky src="../imagenes/fotos-fondos/marcheveree.jpg"></a-sky>
+            <!-- ORRCAA -->
+            <a-entity 
+            gltf-model="../imagenes/objetos-oceano/orca/scene.gltf"
+            animation-mixer="timeScale: 0.2"
+            orca-motion="speed: 1.1; waveHeight: 1; waveFrequency: 0.5; range: 40; rotationOffset: 90 "
+            scale="10 10 10"
+            position=" 0 40 0">
         </a-entity>
-
-        <a-light type="ambient" 
-        intensity="0.5">
-        </a-light>
-
-        <a-light type="point" 
-        intensity="1" 
-        position="2 5 3" 
-        color="#ffffff">
-        </a-light>
-
-        <a-sphere 
-        id="burbuja"
-        position="0 1.5 -3"
-        rotation= "0 0 0"
-        radius="0.3"
-        material="color: #89cff0; opacity: 0.6; transparent: true; metalness: 0.8; roughness: 0.2; envMap: src: #sky"
-        random-move >
-        </a-sphere>
-
-        <a-sphere 
-        id="burbuja"
-        position="-1 1 -3"
-         radius="0.3" 
-         material="color: #89cff0; opacity: 0.6" 
-         random-move>
-        </a-sphere>
-        <a-sphere
-        id="burbuja" 
-        position="1 2 -4" 
-        radius="0.4" 
-        material="color: #89cff0; opacity: 0.5" 
-        random-move>
-        </a-sphere>
-
-        <a-sphere 
-        id="burbuja"
-        position="0 0.5 -2" 
-        radius="0.2" 
-        material="color: #89cff0; opacity: 0.7" 
-        random-move>
-        </a-sphere>
-    </a-entity> -->
-    <a-scene>
-        <a-entity id="rig" position="25 -120 0">
-            <a-camera id="camera"></a-camera>
-          </a-entity>
-
-        <!-- Fondo -->
-        <a-sky src="../imagenes/fotos-fondos/marcheveree.jpg"></a-sky>
-    <!-- ORRCAA -->
+        
+        
+        
+        <!-- DELFIN -->
         <a-entity 
-        gltf-model="../imagenes/objetos-oceano/orca/scene.gltf"
-        animation-mixer="timeScale: 0.2"
-        orca-motion="speed: 1.1; waveHeight: 1; waveFrequency: 0.5; range: 40; rotationOffset: 90 "
-        scale="10 10 10"
-        position=" 0 40 0">
+        gltf-model="../imagenes/objetos-oceano/delfin-cute/scene.gltf"
+        animation-mixer
+        dolphin-motion="speed: 2; range: 20"
+        scale="3 3 3" 
+        position=" 20 -70 0">
     </a-entity>
     
     
-
- <!-- DELFIN -->
- <a-entity 
- gltf-model="../imagenes/objetos-oceano/delfin-cute/scene.gltf"
- animation-mixer
- dolphin-motion="speed: 2; range: 20"
- scale="3 3 3" 
- position=" 20 -70 0">
+    <!-- <a-entity id="rig" position="25 -120 0">
+        <a-camera id="camera"></a-camera>
+    </a-entity> -->
+    
+    
+    <!-- TIBURON-->
+    <a-entity 
+    gltf-model="../imagenes/objetos-oceano/shark2/scene.gltf"
+    animation-mixer
+    shark-motion="speed: 5; amplitude: 1; frequency: 0.5; range: 20"
+    scale="5 5 5" 
+    position="0 5 0"> </a-entity>
+    
+    <!-- SUELO CORAL-->
+    
+    <a-entity
+    gltf-model="../imagenes/objetos-oceano/coral/Tonga_NUA1.glb"
+    scale="100 30 100"
+    position=" 0 -190 0">
 </a-entity>
 
- <!-- TIBURON-->
- <a-entity 
- gltf-model="../imagenes/objetos-oceano/shark2/scene.gltf"
- animation-mixer
- shark-motion="speed: 5; amplitude: 1; frequency: 0.5; range: 20"
- scale="5 5 5" 
- position="0 5 0"> </a-entity>
 
-<!-- SUELO CORAL-->
- 
- <a-entity
- gltf-model="../imagenes/objetos-oceano/coral/Tonga_NUA1.glb"
- scale="100 30 100"
- position=" 0 -190 0">
-</a-entity>
+</a-scene>
+</div>
 
-    </a-scene>
-    <script type="module" src="game.js"></script>
+<script type="module" src="/js/game.js"></script>
+<script type="module" src="/js/bubbles.js"></script>
 
-        </a-scene>
-    </div>
-    <script type="module" src="/js/game.js"></script>
-    <script type="module" src="/js/bubbles.js"></script>
-    <!-- <script type="module" src="/js/main.js"></script> -->
-    </a-scene>
-    <script type="module" src="game.js"></script>
+
 
 </body>
 </html>
