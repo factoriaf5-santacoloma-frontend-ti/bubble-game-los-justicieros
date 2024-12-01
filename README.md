@@ -3,6 +3,8 @@
 ## 🌊 Descubre el Océano: Aventura Submarina para Niños 🌟
 ¡Bienvenidos a un emocionante viaje bajo el mar! Este juego está diseñado especialmente para los niños, quienes se convertirán en pequeños buceadores exploradores en un mundo submarino lleno de sorpresas, colores y diversión.
 
+<img width="948" alt="pic1" src="https://github.com/user-attachments/assets/fb666929-3df7-405e-bbc6-cd697b5e84bb">
+
 Usando la tecnología A-Frame, hemos creado una experiencia interactiva donde podrán jugar, aprender y descobrir a los animales que existen en el océano.
 
 ## 🎯 Objetivo del Juego
@@ -16,6 +18,7 @@ Tu misión como buceador es:
 - Atrapa las burbujas mágicas: Haz clic en las burbujas para capturarlas y gana puntos.
 - Explora: Cambia la profundidad del buceo con el scroll para descubrir nuevas áreas.
 - 🎉 Tip: ¡Cuantas más burbujas captures, más puntos acumulas!
+- ![ete si](https://github.com/user-attachments/assets/721ff721-550f-4612-ba80-a4a72b9b9140)
 
 ## 🌊 Características del Mundo Submarino
 ### Burbujas mágicas:
@@ -23,7 +26,8 @@ Tu misión como buceador es:
 - Al atraparlas, explotan con una divertida animación "pop".
 
 ### Entorno acuático lleno de vida:
-- Peces tropicales nadando, medusas flotando, delfines, diburones y ballena nadando.
+- Peces tropicales nadando, medusas flotando, tiburones y ballena nadando.
+  <img width="515" alt="pic2" src="https://github.com/user-attachments/assets/91c0fefd-4f60-4d68-b2a2-dfbb7a5c1bbb">
 
 ### Efectos especiales:
 
