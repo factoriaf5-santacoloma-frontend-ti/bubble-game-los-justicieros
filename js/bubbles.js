@@ -26,7 +26,7 @@ function generateBubbles(scene, count = 200) {
     );
     bubble.setAttribute('class', 'shootable');
     bubble.setAttribute('random-move', 'speed: 3; range: 200 100 200');
-    bubble.setAttribute('sound', 'src: ../imagenes/sounds/bubble.mp3; on: click; volume: 70');
+    bubble.setAttribute('sound', 'src: https://factoriaf5-santacoloma-frontend-ti.github.io/bubble-game-los-justicieros/imagenes/sounds/bubble.mp3; on: click; volume: 70');
 
     // Evento al hacer clic
     bubble.addEventListener('click', () => {
