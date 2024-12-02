@@ -1,120 +1,100 @@
 import AFRAME from 'aframe';
 
-document.addEventListener("DOMContentLoaded", function() {
-  for (let i = 0; i < 10; i++) {
-   const bubblesGroup = document.createElement('a-entity');
+let score = 0; // Contador global de burbujas explotadas
 
-   // Establece la posición aleatoria para bubblesGroup
-   const randomX = Math.random() * 200 - 100; // Rango de -100 a 100
-   const randomY = Math.random() * 20 + 5; // Rango de 5 a 25 (altura)
-   const randomZ = Math.random() * 200 - 100; // Rango de -100 a 100
-   bubblesGroup.setAttribute('position', `${randomX} ${randomY} ${randomZ}`);
-   
-   bubblesGroup.setAttribute('random-move', '');
-   
-   for (let j = 0; j < 10; j++) {
-     const bubbles = document.createElement('a-sphere');
-     bubbles.object3D.position.set(Math.random() * 100 * j - 100, -4, Math.random() * 2 - j);
-     bubbles.setAttribute('radius', '0.8');
-     bubbles.setAttribute('color', '#89cff0');
-     bubbles.setAttribute('opacity', '0.5');
-     bubblesGroup.appendChild(bubbles);
-   }
-   document.querySelector('a-scene').appendChild(bubblesGroup);
- }
-});
+// Crear una posición aleatoria dentro de un rango, ajustando para aparecer más arriba
+function createRandomPosition(range = { x: 400, y: 300, z: 400 }, coralHeight = -70) {
+  return {
+    x: (Math.random() - 0.5) * range.x,
+    y: coralHeight + Math.random() * range.y + 50, // Ajusta para que estén más arriba
+    z: (Math.random() - 0.5) * range.z,
+  };
+}
 
+// Generar burbujas en la escena
+function generateBubbles(scene, count = 200) {
+  for (let i = 0; i < count; i++) {
+    const bubble = document.createElement('a-sphere');
+    const position = createRandomPosition();
 
+    // Establecer atributos de posición y apariencia
+    bubble.setAttribute('position', position);
+    bubble.setAttribute('radius', '1.6'); // Tamaño aumentado
+    bubble.setAttribute(
+      'material',
+      'color: #FFFFFF; opacity: 0.5; transparent: true; metalness: 0.3; roughness: 0.2'
+    );
+    bubble.setAttribute('class', 'shootable');
+    bubble.setAttribute('random-move', 'speed: 3; range: 200 100 200');
+    bubble.setAttribute('sound', 'src: ../imagenes/sounds/bubble.mp3; on: click; volume: 70');
 
-// document.addEventListener("DOMContentLoaded", function() {
-//    for (let i = 0; i < 10; i++) {
-//     const bubblesGroup = document.createElement('a-entity');
-//     bubblesGroup.setAttribute('position', 'i -4 -i');
-//     bubblesGroup.setAttribute('random-move', '');
-    
-//     for (let j = 0; j < 10; j++) {
-//   const bubbles = document.createElement('a-sphere');
+    // Evento al hacer clic
+    bubble.addEventListener('click', () => {
+      bubble.setAttribute('animation', {
+        property: 'scale',
+        to: '3 3 3',
+        dur: 300,
+        easing: 'easeOutQuad',
+      });
 
-//   // bubbles.setAttribute('position', '0 -4 0');
-//   bubbles.object3D.position.set(Math.random() *100* j -100, -4, Math.random() * 2 -j);
-//   bubbles.setAttribute('radius', '0.8');
-//   bubbles.setAttribute('color', '#89cff0');
-//   bubbles.setAttribute('opacity', '0.5');
+      setTimeout(() => {
+        bubble.parentNode.removeChild(bubble); // Eliminar burbuja
+      }, 300);
 
-//   // bubbles.setAttribute('random-move', '');
-//   bubblesGroup.appendChild(bubbles);
-// }
-// document.querySelector('a-scene').appendChild(bubblesGroup);
-//   }
-// });
-
-AFRAME.registerComponent('random-move', {
-  init: function () {
-    this.el.setAttribute('animation', {
-      property: 'position',
-      to: `${Math.random() * 2 - 1} ${Math.random() * 3 + 1.5} ${Math.random() * 2 - 4}`,
-      dur: 10000 + Math.random() * 2000,
-      loop: true,
-      // dir: '',
-      easing: 'easeInOutSine',
+      // Actualizar contador
+      score++;
+      const scoreText = document.querySelector('#score-text');
+      if (scoreText) {
+        scoreText.setAttribute('value', `Score: ${score}`);
+      }
     });
+
+    scene.appendChild(bubble);
   }
+}
+
+// Componente para movimiento aleatorio y evitar suelo
+AFRAME.registerComponent('random-move', {
+  schema: {
+    speed: { type: 'number', default: 2 },
+    range: { type: 'vec3', default: { x: 200, y: 100, z: 200 } },
+    coralHeight: { type: 'number', default: -70 },
+  },
+  init: function () {
+    this.direction = {
+      x: Math.random() * 2 - 1,
+      y: Math.random() * 2 - 1,
+      z: Math.random() * 2 - 1,
+    };
+  },
+  tick: function (time, timeDelta) {
+    const delta = (this.data.speed * timeDelta) / 1000;
+    const position = this.el.object3D.position;
+
+    position.x += this.direction.x * delta;
+    position.y += this.direction.y * delta;
+    position.z += this.direction.z * delta;
+
+    const { x, y, z } = this.data.range;
+    const coralHeight = this.data.coralHeight;
+
+    if (position.x > x / 2 || position.x < -x / 2) this.direction.x *= -1;
+    if (position.y > y / 2 || position.y < coralHeight + 10) this.direction.y *= -1; // Evitar que caigan debajo del coral
+    if (position.z > z / 2 || position.z < -z / 2) this.direction.z *= -1;
+
+    this.el.object3D.position.copy(position);
+  },
 });
 
-// Posición aleatoria en el cielo
-// Agregar el random-move a todas las burbujas
-// decir que la burbuja es hija de a-scene
-
-// function positionBubbles() {
-//   // for (let i = 0; i < 10; i++) {
-//     const bubble = document.createElement('a-sphere');
-    
-//     const randomX = Math.random() * 10; 
-//     const randomY = Math.random() * -40 ; 
-//     const randomZ = Math.random() * 0 - 10;
-
-//     bubble.setAttribute("color",'red')
-//     bubble.setAttribute('position', `${0} ${0} ${0}`);
-
-    
-//     // bubble.setAttribute('random-move', '');
-
-    
-//     document.querySelector('a-scene').appendChild(bubble);
-//   // }
-// }
-
-// Llama a la función para posicionar las burbujas
-
-// window.addEventListener(["DOMContentLoaded", ()=> {
-//   positionBubbles();
-// }]);
-
-
-
-
-//   function moveBubbles() {
-//     const bubbles = document.querySelectorAll('a-sphere[random-move]');
-//     bubbles.forEach(bubble => {
-//         // Lógica para mover las burbujas
-//         const currentPosition = bubble.getAttribute('position');
-//         // Cambiar la posición, por ejemplo, agregar un pequeño movimiento en el eje Y
-//         bubble.setAttribute('position', {
-//             x: currentPosition.x,
-//             y: currentPosition.y + Math.sin(Date.now() * 0.001) * 0.01, // Movimiento oscilante
-//             z: currentPosition.z
-//         });
-//     });
-// }
-
-// function animate() {
-//     moveBubbles();
-//     requestAnimationFrame(animate);
-// }
-
-// animate(); // Inicia el bucle de animación
-
-// document.addEventListener('DOMContentLoaded', () => {
-//     animate(); // Inicia el bucle de animación
-// });
-
+// Componente para inicializar las burbujas y marcador
+AFRAME.registerComponent('bubble-generator', {
+  schema: {
+    count: { type: 'number', default: 200 },
+    range: { type: 'vec3', default: { x: 200, y: 100, z: 200 } },
+    coralHeight: { type: 'number', default: -70 },
+  },
+  init: function () {
+    const scene = this.el.sceneEl;
+    generateBubbles(scene, this.data.count);
+  },
+});

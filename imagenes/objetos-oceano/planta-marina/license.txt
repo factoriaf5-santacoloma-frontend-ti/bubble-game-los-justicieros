@@ -1,8 +1,0 @@
-Model Information:
-* title:	Lowpoly marine plant
-* source:	https://sketchfab.com/3d-models/lowpoly-marine-plant-efc1b262abd84865ac25df5269068afd
-* author:	assetfactory (https://sketchfab.com/assetfactory)
-
-Model License:
-* license type:	SKETCHFAB Standard (https://sketchfab.com/licenses)
-* requirements:	Under basic restrictions, use worldwide, on all types of media, commercially or not, and in all types of derivative works
