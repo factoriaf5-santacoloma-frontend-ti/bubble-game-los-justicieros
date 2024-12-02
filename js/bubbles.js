@@ -1,4 +1,4 @@
-import AFRAME from 'aframe';
+// import AFRAME from 'aframe';
 
 let score = 0; // Contador global de burbujas explotadas
 

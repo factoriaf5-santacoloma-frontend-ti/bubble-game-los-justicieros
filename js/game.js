@@ -1,5 +1,5 @@
-import AFRAME from 'aframe';
-import 'aframe-extras';
+// import AFRAME from 'aframe';
+// import 'aframe-extras';
 
 ///// ORCA MOVIMIENTOS //////
 AFRAME.registerComponent('orca-motion', {
