@@ -6,7 +6,9 @@
     <title>The Bubble Diver</title>
     <link rel="icon" href="/imagenes/logo/pulpo-logo.png" type="image/x-icon">
    
+    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/aframe-extras/dist/aframe-extras.min.js"></script>
+
     <script type="module" src="/js/game.js"></script>
     <script type="module" src="/js/bubbles.js"></script>
     <script type="module" src="/js/controls.js"></script>
@@ -38,7 +40,7 @@
 
             <!-- Cámara -->
             <a-camera 
-                underwater-jump="ascentSpeed: 2; descentSpeed: 0.6; maxHeight: 300; minHeight: -80; groundEntity: #coral-ground"
+                underwater-jump="ascentSpeed: 2; descentSpeed: 0.6; maxHeight: 300; minHeight: -80np; groundEntity: #coral-ground"
                 wasd-controls 
                 look-controls="pointerLockEnabled: true"
                 position="0 1.6 0">
