@@ -19,7 +19,7 @@ function generateBubbles(scene, count = 200) {
 
     // Establecer atributos de posición y apariencia
     bubble.setAttribute('position', position);
-    bubble.setAttribute('radius', '1.6'); // Tamaño aumentado
+    bubble.setAttribute('radius', '3.2'); // Tamaño aumentado
     bubble.setAttribute(
       'material',
       'color: #FFFFFF; opacity: 0.5; transparent: true; metalness: 0.3; roughness: 0.2'

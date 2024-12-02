@@ -19,11 +19,13 @@
 <body>
     <div id="app">
         <a-scene>
-            <!-- MUSICA DE FONDO-->
-            <audio id="background-music" autoplay loop>
-                <source src="https://factoriaf5-santacoloma-frontend-ti.github.io/bubble-game-los-justicieros/imagenes/sounds/Underwater.mp3" type="audio/mpeg">
-            </audio>
-          
+          <!-- MUSICA DE FONDO-->
+             <a-entity 
+             sound="src: url(https://factoriaf5-santacoloma-frontend-ti.github.io/bubble-game-los-justicieros/imagenes/sounds/Underwater.mp3); 
+            autoplay: true; 
+            loop: true; 
+            volume: 10;">
+            </a-entity>
             <!-- FONDO -->
             <a-sky src="https://factoriaf5-santacoloma-frontend-ti.github.io/bubble-game-los-justicieros/imagenes/fotos-fondos/marcheveree.jpg"></a-sky>
 
@@ -38,6 +40,7 @@
             <!-- Cámara -->
             <a-camera 
                 underwater-jump="ascentSpeed: 2; descentSpeed: 0.6; maxHeight: 300; minHeight: -80np; groundEntity: #coral-ground"
+                universal-controls="ascentSpeed: 2; descentSpeed: 0.8; maxHeight: 300; minHeight: -80; groundEntity: #coral-ground"
                 wasd-controls 
                 look-controls="pointerLockEnabled: true"
                 position="0 1.6 0">
@@ -89,7 +92,7 @@
 
             <!-- GRUPO DE MEDUSAS -->
             <a-entity 
-                jellyfish-school="mode l: https://factoriaf5-santacoloma-frontend-ti.github.io/bubble-game-los-justicieros/imagenes/objetos-oceano/jellyfish3/blue_jellyfish.glb; count: 40; range: 50 30 50; speed: 0.2" 
+                jellyfish-school="model: https://factoriaf5-santacoloma-frontend-ti.github.io/bubble-game-los-justicieros/imagenes/objetos-oceano/jellyfish3/blue_jellyfish.glb; count: 40; range: 50 30 50; speed: 0.2" 
                 scale="10 10 10"
                 animation-mixer 
                 jellyfish-motion="speed: 2; range: 2">

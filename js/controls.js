@@ -124,3 +124,99 @@ AFRAME.registerComponent('underwater-jump', {
     this.el.object3D.position.copy(position);
   },
 });
+AFRAME.registerComponent('universal-controls', {
+  schema: {
+    ascentSpeed: { type: 'number', default: 1 }, // Velocidad de ascenso
+    descentSpeed: { type: 'number', default: 0.5 }, // Velocidad de descenso
+    maxHeight: { type: 'number', default: 20 }, // Altura máxima
+    minHeight: { type: 'number', default: 1 }, // Altura mínima
+    groundEntity: { type: 'selector', default: null }, // Suelo
+  },
+  init: function () {
+    this.isJumping = false;
+    this.velocity = 0;
+    this.onGround = true;
+
+    this.isVR = false;
+
+    // Detectar si está en VR
+    this.el.sceneEl.addEventListener('enter-vr', () => {
+      this.isVR = true;
+    });
+    this.el.sceneEl.addEventListener('exit-vr', () => {
+      this.isVR = false;
+    });
+
+    // Controles de escritorio (teclado)
+    window.addEventListener('keydown', (e) => {
+      if (!this.isVR) {
+        if (e.code === 'Space' && this.onGround) {
+          this.isJumping = true;
+        }
+      }
+    });
+
+    window.addEventListener('keyup', (e) => {
+      if (!this.isVR && e.code === 'Space') {
+        this.isJumping = false;
+      }
+    });
+
+    // Controles de VR (thumbstick y botones)
+    this.el.addEventListener('thumbstickmoved', (e) => {
+      if (this.isVR && e.detail.y < -0.95) {
+        this.isJumping = true; // Pulgar hacia arriba
+      } else {
+        this.isJumping = false;
+      }
+    });
+
+    this.el.addEventListener('buttondown', (e) => {
+      if (this.isVR && e.detail.id === 1) {
+        this.isJumping = true; // Botón derecho superior
+      }
+    });
+
+    this.el.addEventListener('buttonup', (e) => {
+      if (this.isVR && e.detail.id === 1) {
+        this.isJumping = false;
+      }
+    });
+  },
+  tick: function (time, timeDelta) {
+    const delta = timeDelta / 1000;
+    const position = this.el.object3D.position;
+    const { ascentSpeed, descentSpeed, maxHeight, minHeight, groundEntity } = this.data;
+
+    // Detectar colisión con el suelo
+    if (groundEntity) {
+      const playerBox = new THREE.Box3().setFromObject(this.el.object3D);
+      const groundBox = new THREE.Box3().setFromObject(groundEntity.object3D);
+      this.onGround = playerBox.intersectsBox(groundBox);
+    }
+
+    // Control del salto/elevación
+    if (this.isJumping && position.y < maxHeight) {
+      this.velocity = Math.min(this.velocity + ascentSpeed * delta, ascentSpeed);
+    } else if (!this.isJumping || position.y >= maxHeight) {
+      this.velocity = Math.max(this.velocity - descentSpeed * delta, -descentSpeed);
+    } else if (this.onGround) {
+      this.velocity = 0;
+    }
+
+    // Actualizar posición vertical
+    position.y += this.velocity;
+
+    // Limitar la altura máxima y mínima
+    if (position.y > maxHeight) {
+      position.y = maxHeight;
+      this.velocity = 0;
+    }
+    if (position.y < minHeight) {
+      position.y = minHeight;
+      this.velocity = 0;
+    }
+
+    this.el.object3D.position.copy(position);
+  },
+});
