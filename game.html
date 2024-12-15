@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Bubble Diver</title>
+    <link rel="icon" href="https://factoriaf5-santacoloma-frontend-ti.github.io/bubble-game-los-justicieros/imagenes/logo/pulpo-logo.png" type="image/x-icon">
+   
+    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aframe-extras/dist/aframe-extras.min.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+
+        <a-scene>
+        
+            <!-- FONDO -->
+            <a-sky src="https://factoriaf5-santacoloma-frontend-ti.github.io/bubble-game-los-justicieros/imagenes/fotos-fondos/marcheveree.jpg"></a-sky>
+
+            <!-- SUELO CORAL -->
+            <a-entity
+                id="coral-ground"
+                gltf-model="https://factoriaf5-santacoloma-frontend-ti.github.io/bubble-game-los-justicieros/imagenes/objetos-oceano/coral/Tonga_NUA1.glb"
+                scale="100 30 100"
+                position="0 -80 0">
+            </a-entity>
+
+            <!-- Cámara -->
+            <a-camera 
+                underwater-jump="ascentSpeed: 2; descentSpeed: 0.6; maxHeight: 300; minHeight: -80np; groundEntity: #coral-ground"
+                universal-controls="ascentSpeed: 2; descentSpeed: 0.8; maxHeight: 300; minHeight: -80; groundEntity: #coral-ground"
+                wasd-controls 
+                look-controls="pointerLockEnabled: true"
+                position="0 1.6 0">
+            <a-cursor 
+                cursor="fuse: false" 
+                raycaster="objects: .shootable"
+                geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.02" 
+                material="color: black; opacity: 0.3">
+                </a-cursor>
+            <a-text 
+                id="score-text" 
+                value="Score: 0" 
+                position="0 -0.7 -1"
+                color="#FFFFFF" 
+                align="center" 
+                width="0.9"> 
+            </a-text>
+            
+            </a-camera>
+
+            <!-- ORCA -->
+            <a-entity 
+                gltf-model="https://factoriaf5-santacoloma-frontend-ti.github.io/bubble-game-los-justicieros/imagenes/objetos-oceano/orca/scene.gltf"
+                animation-mixer="timeScale: 0.2"
+                orca-motion="speed: 2; waveHeight: 0.2; waveFrequency: 0.5; range: 50; rotationOffset: 90; rotationSpeed: 1.8"
+                scale="10 10 10"
+                position="0 40 0">
+            </a-entity>
+
+
+            <!-- TIBURON -->
+            <a-entity 
+                gltf-model="../imagenes/objetos-oceano/shark2/scene.gltf"
+                animation-mixer
+                shark-motion="speed: 5; amplitude: 1; frequency: 0.5; range: 20"
+                scale="5 5 5" 
+                position="0 5 0"> 
+            </a-entity>
+       <a-entity gltf-model="#jorge" scale="5 5 5">
+    
+    
+    
+    
+    
+    
+    </a-entity>
+           
+
+            <!-- GRUPO DE PECES 1 -->
+            <a-entity 
+                fish-school="model: https://factoriaf5-santacoloma-frontend-ti.github.io/bubble-game-los-justicieros/imagenes/objetos-oceano/pez-nemo/scene.gltf; count: 50; range: 20 10 20; speed: 0.5" 
+                scale="20 20 20">
+            </a-entity>
+
+            <!-- GRUPO DE PECES 2-->
+            <a-entity 
+                fish-school2="model: https://factoriaf5-santacoloma-frontend-ti.github.io/bubble-game-los-justicieros/imagenes/objetos-oceano/fish01/scene.gltf; count: 40; range: 100 30 100; speed: 1">
+            </a-entity>
+
+            <!-- GRUPO DE MEDUSAS -->
+            <a-entity 
+                jellyfish-school="model: https://factoriaf5-santacoloma-frontend-ti.github.io/bubble-game-los-justicieros/imagenes/objetos-oceano/jellyfish3/blue_jellyfish.glb; count: 40; range: 50 30 50; speed: 0.2" 
+                scale="10 10 10"
+                animation-mixer 
+                jellyfish-motion="speed: 2; range: 2">
+            </a-entity>
+
+          <!-- GENERADOR DE BURBUJAS -->
+          <a-entity 
+              bubble-generator="count: 200; range: 200 200 200; coralHeight: -70">
+          </a-entity>
+
+
+        </a-scene>
+    </div>
+    <script type="module" src="https://factoriaf5-santacoloma-frontend-ti.github.io/bubble-game-los-justicieros/js/game.js"></script>
+    <script type="module" src="https://factoriaf5-santacoloma-frontend-ti.github.io/bubble-game-los-justicieros/js/bubbles.js"></script>
+    <script type="module" src="https://factoriaf5-santacoloma-frontend-ti.github.io/bubble-game-los-justicieros/js/controls.js"></script>
+
+</body>
+</html>

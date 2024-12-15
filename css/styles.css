@@ -1,0 +1,140 @@
+/* Reset general */
+* {
+    margin: 0; /* Elimina los márgenes por defecto de todos los elementos */
+    padding: 0; /* Elimina los rellenos por defecto de todos los elementos */
+    box-sizing: border-box; /* Incluye el borde y el relleno en el tamaño total de los elementos */
+}
+
+body {
+    font-family: "Sour Gummy", serif; /* Fuente principal del documento */
+    line-height: 1.6; /* Altura de línea para un mejor espaciado del texto */
+    background-color: #A7D9D4; /* Fondo de color verde claro */
+}
+
+/* Barra de Navegación */
+.navbar {
+    font-family: "Sour Gummy", serif;
+    position: absolute; /* Ubica la barra en una posición absoluta en relación con el contenedor principal */
+    top: 0; /* Posición superior de la barra */
+    left: 0; /* Posición izquierda de la barra */
+    width: 100%; /* La barra ocupa el 100% del ancho */
+    z-index: 1000; /* Prioridad más alta para que esté por encima de otros elementos */
+    background-color: rgba(182, 250, 220, 0.1); /* Fondo negro con una opacidad del 30% */
+    backdrop-filter: blur(10px); /* Aplica un desenfoque al fondo detrás de la barra */
+    color: #fff; /* Color del texto blanco */
+    padding: 10px 20px; /* Espaciado interno: 10px arriba/abajo y 20px izquierda/derecha */
+    display: flex; /* Utiliza flexbox para alinear los elementos dentro de la barra */
+    justify-content: space-between; /* Distribuye los elementos a ambos lados (izquierda y derecha) */
+    align-items: center; /* Centra los elementos verticalmente */
+}
+
+.logo img {
+    height: 50px; /* Altura fija de la imagen del logo */
+    width: auto; /* Mantiene la proporción original del ancho */
+    display: block; /* Evita comportamientos no deseados en el diseño del logo */
+}
+
+.navbar .nav-links a {
+    color: #fff; /* Color de los enlaces en blanco */
+    text-decoration: none; /* Elimina el subrayado por defecto de los enlaces */
+    margin-right: 15px; /* Espaciado entre los enlaces */
+    font-size: 1rem; /* Tamaño de fuente de los enlaces */
+}
+
+.navbar .play-now {
+    background: linear-gradient(135deg,#c501e2, #9a27f7, #6664ff ); /* Fondo degradado */
+    font-family: "Sour Gummy", serif;
+    /*background-color: #9a27f7; /* Fondo rojo del botón "Play Now" */
+    
+    color: #fff; /* Color del texto en blanco */
+    border: none; /* Elimina cualquier borde predeterminado */
+    padding: 8px 15px; /* Relleno interno del botón */
+    border-radius: 5px; /* Bordes redondeados para un estilo más atractivo */
+    cursor: pointer; /* Cambia el cursor al icono de mano para indicar que es clickeable */
+    font-size: 1rem; /* Tamaño de fuente del botón */
+    transition: background-color 0.3s ease; /* Transición suave para el cambio de color al hacer hover */
+}
+
+.navbar .play-now:hover {
+    transform: translateY(-3px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Sección de Video */
+.video-section {
+    position: relative; /* Posición relativa para que los elementos hijos puedan posicionarse respecto a este contenedor */
+    overflow: hidden; /* Oculta cualquier contenido que sobresalga del contenedor */
+}
+
+.background-video {
+    width: 100%; /* El video ocupa todo el ancho disponible */
+    height: 725px; /* Altura fija para el video */
+    object-fit: cover; /* Asegura que el video llene el área sin deformarse */
+    display: block; /* Asegura un buen comportamiento en la estructura del diseño */
+}
+
+/* Descripción */
+.description-section {
+    padding: 40px 20px; /* Espaciado interno: 40px arriba/abajo y 20px izquierda/derecha */
+    margin: 50px auto; /* Espaciado externo: 50px arriba/abajo y centrado horizontalmente */
+    background-color: #1B8C8C; /* Fondo de color gris claro */
+    color: #fff; /* Color del texto en negro */
+    max-width: 800px; /* Ancho máximo del contenedor para evitar que se expanda demasiado */
+    border-radius: 10px; /* Bordes redondeados para un diseño más elegante */
+    text-align: center; /* Centra el texto dentro de la sección */
+}
+
+.description-section .play-now{
+    font-family: "Sour Gummy", serif;
+    background: linear-gradient(135deg,#c501e2, #9a27f7, #6664ff ); /* Fondo degradado */
+    color: #fff; /* Color del texto en blanco */
+    border: none; /* Elimina cualquier borde predeterminado */
+    padding: 8px 15px; /* Relleno interno del botón */
+    border-radius: 5px; /* Bordes redondeados para un estilo más atractivo */
+    cursor: pointer; /* Cambia el cursor al icono de mano para indicar que es clickeable */
+    font-size: 2rem; /* Tamaño de fuente del botón */
+    transition: background-color 0.3s ease; /* Transición suave para el cambio de color al hacer hover */
+}
+
+.description-section h2 {
+    margin-bottom: 15px; /* Espaciado inferior del título */
+    font-family: "Indie Flower", cursive;
+}
+
+.description-section p {
+    font-size: 1.2rem; /* Tamaño de fuente del texto del párrafo */
+    line-height: 1.5; /* Espaciado entre líneas del texto */
+}
+
+/* Footer */
+.footer {
+    padding: 10px 20px; /* Espaciado interno del footer */
+    background-color: #000; /* Fondo negro */
+    color: #fff; /* Texto en blanco */
+    text-align: center; /* Centra el texto dentro del footer */
+}
+
+/* Responsivo */
+@media (max-width: 768px) { /* Estilos para pantallas de ancho máximo de 768px */
+    .navbar {
+        flex-direction: row; /* Mantén los elementos en una fila */
+        justify-content: space-between; /* Logo a la izquierda, enlaces a la derecha */
+        align-items: center; /* Alinea verticalmente los elementos al centro */
+    }
+
+    .nav-links {
+        display: flex; /* Activa flexbox para los enlaces */
+        flex-direction: column; /* Alinea los enlaces verticalmente */
+        align-items: flex-start; /* Alinea los enlaces a la izquierda */
+        margin-top: 10px; /* Espaciado superior entre el logo y los enlaces */
+    }
+
+    .nav-links a {
+        margin-right: 0; /* Elimina el margen derecho de los enlaces */
+        margin-bottom: 10px; /* Agrega espaciado entre los enlaces */
+    }
+
+    .description-section {
+        padding: 15px; /* Reduce el relleno interno para pantallas pequeñas */
+    }
+}
