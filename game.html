@@ -18,14 +18,15 @@
 </head>
 <body>
     <div id="app">
+
         <a-scene>
           <!-- MUSICA DE FONDO-->
-             <a-entity 
+             <!--<a-entity 
              sound="src: url(https://factoriaf5-santacoloma-frontend-ti.github.io/bubble-game-los-justicieros/imagenes/sounds/Underwater.mp3); 
             autoplay: true; 
             loop: true; 
             volume: 10;">
-            </a-entity>
+            </a-entity>/// -->
             <!-- FONDO -->
             <a-sky src="https://factoriaf5-santacoloma-frontend-ti.github.io/bubble-game-los-justicieros/imagenes/fotos-fondos/marcheveree.jpg"></a-sky>
 
@@ -70,14 +71,24 @@
                 position="0 40 0">
             </a-entity>
 
+
             <!-- TIBURON -->
             <a-entity 
-                gltf-model="https://factoriaf5-santacoloma-frontend-ti.github.io/bubble-game-los-justicieros/imagenes/objetos-oceano/shark2/scene.gltf"
+                gltf-model="../imagenes/objetos-oceano/shark2/scene.gltf"
                 animation-mixer
                 shark-motion="speed: 5; amplitude: 1; frequency: 0.5; range: 20"
-                scale="8 8 8" 
+                scale="5 5 5" 
                 position="0 5 0"> 
             </a-entity>
+       <a-entity gltf-model="#jorge" scale="5 5 5">
+    
+    
+    
+    
+    
+    
+    </a-entity>
+           
 
             <!-- GRUPO DE PECES 1 -->
             <a-entity 
